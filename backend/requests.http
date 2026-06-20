@@ -95,3 +95,28 @@ GET http://localhost:3000/api/consultas/livros-nunca-emprestados
 
 ### Q5 - Top 10 usuarios com mais emprestimos
 GET http://localhost:3000/api/consultas/top-usuarios-emprestimos
+
+
+
+
+
+### Q6 - Livros por categoria
+GET http://localhost:3000/api/agregacoes/livros-por-categoria
+
+### Q7 - Media de avaliacoes por livro
+GET http://localhost:3000/api/agregacoes/media-avaliacoes-por-livro
+
+### Q8 - Top 10 livros mais emprestados
+GET http://localhost:3000/api/agregacoes/top10-livros-mais-emprestados
+
+### Q9 - Cursos que mais utilizam a biblioteca
+GET http://localhost:3000/api/agregacoes/cursos-que-mais-utilizam
+
+### Q10 - Taxa de devolucao por mes
+GET http://localhost:3000/api/agregacoes/taxa-devolucao-por-mes
+
+### Q11 - Ranking de autores mais lidos
+GET http://localhost:3000/api/agregacoes/ranking-autores-mais-lidos
+
+### Q12 - Livros com nota media inferior a 3
+GET http://localhost:3000/api/agregacoes/livros-nota-media-baixa
