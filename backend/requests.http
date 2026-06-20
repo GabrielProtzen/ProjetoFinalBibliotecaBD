@@ -1,0 +1,97 @@
+### 1. Pegar um usuario para usar o ID nos testes abaixo
+GET http://localhost:3000/api/usuarios
+
+### 2. Pegar um livro para usar o ID nos testes abaixo
+GET http://localhost:3000/api/livros
+
+
+### ---------- LIVROS ----------
+
+### Inserir livro
+POST http://localhost:3000/api/livros
+Content-Type: application/json
+
+{
+  "isbn": "9788512345999",
+  "titulo": "Livro Teste",
+  "autor": "Autor Teste",
+  "editora": "Novatec",
+  "ano": 2024,
+  "categoria": "Computação",
+  "palavrasChave": ["teste"],
+  "quantidade": 5
+}
+
+### Atualizar quantidade (troque o :id pelo _id real de um livro)
+PATCH http://localhost:3000/api/livros/6a370708ec387ea976abc178/quantidade
+Content-Type: application/json
+
+{
+  "quantidade": 10
+}
+
+### Alterar categoria
+PATCH http://localhost:3000/api/livros/6a370708ec387ea976abc178/categoria
+Content-Type: application/json
+
+{
+  "categoria": "Banco de Dados"
+}
+
+### Remover livro
+DELETE http://localhost:3000/api/livros/6a370708ec387ea976abc178
+
+
+### ---------- USUARIOS ----------
+
+### Bloquear usuario
+PATCH http://localhost:3000/api/usuarios/6a370708ec387ea976abc114/bloquear
+
+### Reativar usuario
+PATCH http://localhost:3000/api/usuarios/6a370708ec387ea976abc114/reativar
+
+### Alterar curso
+PATCH http://localhost:3000/api/usuarios/6a370708ec387ea976abc114/curso
+Content-Type: application/json
+
+{
+  "curso": "Engenharia de Software"
+}
+
+
+### ---------- EMPRESTIMOS ----------
+
+### Realizar emprestimo (troque os dois IDs pelos que vieram nos passos 1 e 2)
+POST http://localhost:3000/api/emprestimos
+Content-Type: application/json
+
+{
+  "usuario_id": "6a370708ec387ea976abc114",
+  "livro_id": "6a370708ec387ea976abc178"
+}
+
+### Listar emprestimos (confirme que o novo emprestimo apareceu e copie o _id dele)
+GET http://localhost:3000/api/emprestimos
+
+### Registrar devolucao (troque pelo _id do emprestimo criado acima)
+PATCH http://localhost:3000/api/emprestimos/6a3715318477f36f9ddca7ca/devolucao
+
+### Renovar emprestimo
+PATCH http://localhost:3000/api/emprestimos/6a3715318477f36f9ddca7ca/renovar
+
+
+
+### Q1 - Livros Computação após 2020
+GET http://localhost:3000/api/consultas/livros-por-categoria-ano
+
+### Q2 - Usuarios cadastrados nos ultimos 30 dias
+GET http://localhost:3000/api/consultas/usuarios-recentes
+
+### Q3 - Emprestimos em atraso
+GET http://localhost:3000/api/consultas/emprestimos-atrasados
+
+### Q4 - Livros nunca emprestados
+GET http://localhost:3000/api/consultas/livros-nunca-emprestados
+
+### Q5 - Top 10 usuarios com mais emprestimos
+GET http://localhost:3000/api/consultas/top-usuarios-emprestimos

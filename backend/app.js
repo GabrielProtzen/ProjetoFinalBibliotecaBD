@@ -1,0 +1,32 @@
+require('dotenv').config();
+
+const express = require('express');
+const cors = require('cors');
+const connectDB = require('./config/db');
+
+const livroRoutes = require('./routes/livroRoutes');
+const usuarioRoutes = require('./routes/usuarioRoutes');
+const emprestimoRoutes = require('./routes/emprestimoRoutes');
+const consultaRoutes = require('./routes/consultaRoutes');
+
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+connectDB();
+
+app.get('/', (req, res) => {
+    res.json({ status: 'API Biblioteca rodando', timestamp: new Date() });
+});
+
+app.use('/api/livros', livroRoutes);
+app.use('/api/usuarios', usuarioRoutes);
+app.use('/api/emprestimos', emprestimoRoutes);
+app.use('/api/consultas', consultaRoutes);
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
+});
