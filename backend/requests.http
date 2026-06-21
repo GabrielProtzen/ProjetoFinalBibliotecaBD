@@ -67,14 +67,14 @@ Content-Type: application/json
 
 {
   "usuario_id": "6a370708ec387ea976abc114",
-  "livro_id": "6a370708ec387ea976abc178"
+  "livro_id": "6a370708ec387ea976abc18a"
 }
 
 ### Listar emprestimos
 GET http://localhost:3000/api/emprestimos
 
 ### Registrar devolucao 
-PATCH http://localhost:3000/api/emprestimos/6a3715318477f36f9ddca7ca/devolucao
+PATCH http://localhost:3000/api/emprestimos/6a384835f203a68b4fc0882f/devolucao
 
 ### Renovar emprestimo
 PATCH http://localhost:3000/api/emprestimos/6a3715318477f36f9ddca7ca/renovar
