@@ -11,6 +11,7 @@ const consultaRoutes = require('./routes/consultaRoutes');
 const agregacaoRoutes = require('./routes/agregacaoRoutes');
 const lookupRoutes = require('./routes/lookupRoutes');
 const searchRoutes = require('./routes/searchRoutes');
+const transacaoRoutes = require('./routes/transacaoRoutes');
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use('/api/consultas', consultaRoutes);
 app.use('/api/agregacoes', agregacaoRoutes);
 app.use('/api/lookups', lookupRoutes);
 app.use('/api/search', searchRoutes);
+app.use('/api/transacoes', transacaoRoutes);
 
 const PORT = process.env.PORT || 3000;
 

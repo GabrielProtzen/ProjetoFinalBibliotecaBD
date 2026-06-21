@@ -148,3 +148,28 @@ GET http://localhost:3000/api/search/livros-similares?termo=algoritmo
 
 ### Q18 - Autocomplete de titulo
 GET http://localhost:3000/api/search/autocomplete-titulo?termo=Liv
+
+
+
+
+
+### Parte 12 – Transações
+
+### Teste 1 — Transacao - emprestimo com sucesso
+POST http://localhost:3000/api/transacoes/emprestimo
+Content-Type: application/json
+
+{
+  "usuario_id": "6a370708ec387ea976abc115",
+  "livro_id": "6a370708ec387ea976abc178"
+}
+
+### Teste 2 — Transacao - forcando falha pra provar o rollback
+POST http://localhost:3000/api/transacoes/emprestimo
+Content-Type: application/json
+
+{
+  "usuario_id": "6a370708ec387ea976abc115",
+  "livro_id": "6a370708ec387ea976abc178",
+  "forcarFalha": true
+}
