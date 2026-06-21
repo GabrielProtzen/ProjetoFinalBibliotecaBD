@@ -134,3 +134,17 @@ GET http://localhost:3000/api/lookups/avaliacoes-detalhadas
 
 ### Q15 - Relatorio completo de um usuario
 GET http://localhost:3000/api/lookups/relatorio-usuario/6a370708ec387ea976abc115
+
+
+
+
+
+
+### Q16 - Busca por "mongodb"
+GET http://localhost:3000/api/search/livros?termo=mongodb
+
+### Q17 - Busca fuzzy por "algoritmo"
+GET http://localhost:3000/api/search/livros-similares?termo=algoritmo
+
+### Q18 - Autocomplete de titulo
+GET http://localhost:3000/api/search/autocomplete-titulo?termo=Liv
