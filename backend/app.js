@@ -9,6 +9,7 @@ const usuarioRoutes = require('./routes/usuarioRoutes');
 const emprestimoRoutes = require('./routes/emprestimoRoutes');
 const consultaRoutes = require('./routes/consultaRoutes');
 const agregacaoRoutes = require('./routes/agregacaoRoutes');
+const lookupRoutes = require('./routes/lookupRoutes');
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use('/api/usuarios', usuarioRoutes);
 app.use('/api/emprestimos', emprestimoRoutes);
 app.use('/api/consultas', consultaRoutes);
 app.use('/api/agregacoes', agregacaoRoutes);
+app.use('/api/lookups', lookupRoutes);
 
 const PORT = process.env.PORT || 3000;
 

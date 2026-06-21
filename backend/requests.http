@@ -22,7 +22,7 @@ Content-Type: application/json
   "quantidade": 5
 }
 
-### Atualizar quantidade (troque o :id pelo _id real de um livro)
+### Atualizar quantidade
 PATCH http://localhost:3000/api/livros/6a370708ec387ea976abc178/quantidade
 Content-Type: application/json
 
@@ -61,7 +61,7 @@ Content-Type: application/json
 
 ### ---------- EMPRESTIMOS ----------
 
-### Realizar emprestimo (troque os dois IDs pelos que vieram nos passos 1 e 2)
+### Realizar emprestimo
 POST http://localhost:3000/api/emprestimos
 Content-Type: application/json
 
@@ -70,10 +70,10 @@ Content-Type: application/json
   "livro_id": "6a370708ec387ea976abc178"
 }
 
-### Listar emprestimos (confirme que o novo emprestimo apareceu e copie o _id dele)
+### Listar emprestimos
 GET http://localhost:3000/api/emprestimos
 
-### Registrar devolucao (troque pelo _id do emprestimo criado acima)
+### Registrar devolucao 
 PATCH http://localhost:3000/api/emprestimos/6a3715318477f36f9ddca7ca/devolucao
 
 ### Renovar emprestimo
@@ -120,3 +120,17 @@ GET http://localhost:3000/api/agregacoes/ranking-autores-mais-lidos
 
 ### Q12 - Livros com nota media inferior a 3
 GET http://localhost:3000/api/agregacoes/livros-nota-media-baixa
+
+
+
+
+
+
+### Q13 - Emprestimos detalhados (usuario + livro + data)
+GET http://localhost:3000/api/lookups/emprestimos-detalhados
+
+### Q14 - Avaliacoes detalhadas (usuario + livro + nota + comentario)
+GET http://localhost:3000/api/lookups/avaliacoes-detalhadas
+
+### Q15 - Relatorio completo de um usuario
+GET http://localhost:3000/api/lookups/relatorio-usuario/6a370708ec387ea976abc115
