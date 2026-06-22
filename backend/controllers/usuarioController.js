@@ -1,4 +1,5 @@
 const Usuario = require('../models/Usuario');
+const registrarAuditoria = require('../utils/auditoria');
 
 exports.listarUsuarios = async (req, res) => {
     try {
@@ -27,6 +28,7 @@ exports.bloquearUsuario = async (req, res) => {
             { new: true }
         );
         if (!usuario) return res.status(404).json({ erro: 'Usuário não encontrado' });
+        await registrarAuditoria('usuarios', 'bloqueio', { usuario_id: usuario._id, nome: usuario.nome });
         res.json(usuario);
     } catch (err) {
         res.status(400).json({ erro: err.message });
@@ -41,6 +43,7 @@ exports.reativarUsuario = async (req, res) => {
             { new: true }
         );
         if (!usuario) return res.status(404).json({ erro: 'Usuário não encontrado' });
+        await registrarAuditoria('usuarios', 'reativacao', { usuario_id: usuario._id, nome: usuario.nome });
         res.json(usuario);
     } catch (err) {
         res.status(400).json({ erro: err.message });
@@ -60,6 +63,7 @@ exports.alterarCurso = async (req, res) => {
             { new: true, runValidators: true }
         );
         if (!usuario) return res.status(404).json({ erro: 'Usuário não encontrado' });
+        await registrarAuditoria('usuarios', 'atualizacao_curso', { usuario_id: usuario._id, novoCurso: curso });
         res.json(usuario);
     } catch (err) {
         res.status(400).json({ erro: err.message });
