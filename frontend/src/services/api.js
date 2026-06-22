@@ -65,6 +65,8 @@ export const relatorioUsuario = (id) => api.get(`/lookups/relatorio-usuario/${id
 // ---------- Atlas Search (Parte 8) ----------
 export const buscarLivrosPorTermo = (termo) =>
     api.get('/search/livros', { params: { termo } }).then((res) => res.data);
+export const buscarLivrosSimilares = (termo) =>
+    api.get('/search/livros-similares', { params: { termo } }).then((res) => res.data);
 export const autocompleteTitulo = (termo) =>
     api.get('/search/autocomplete-titulo', { params: { termo } }).then((res) => res.data);
 
