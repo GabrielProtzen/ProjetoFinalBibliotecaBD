@@ -1,0 +1,66 @@
+.section-title {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.ranking-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.ranking-item {
+    display: grid;
+    grid-template-columns: 2.2rem 1fr 140px auto;
+    align-items: center;
+    gap: 1rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 0.75rem 1.1rem;
+}
+
+.ranking-position {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-brass);
+    text-align: center;
+}
+
+.ranking-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    min-width: 0;
+}
+
+.ranking-info .catalog-card-title {
+    font-size: 0.95rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ranking-bar-track {
+    height: 6px;
+    background: var(--color-border);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.ranking-bar-fill {
+    height: 100%;
+    background: var(--color-primary);
+    border-radius: 3px;
+}
+
+@media (max-width: 640px) {
+    .ranking-item {
+        grid-template-columns: 2rem 1fr auto;
+    }
+
+    .ranking-bar-track {
+        display: none;
+    }
+}

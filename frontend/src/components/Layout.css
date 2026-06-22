@@ -1,0 +1,97 @@
+.catalog-drawer {
+    width: 240px;
+    flex-shrink: 0;
+    background: var(--color-primary);
+    color: var(--color-surface);
+    display: flex;
+    flex-direction: column;
+    padding: 1.8rem 0;
+}
+
+.drawer-header {
+    padding: 0 1.5rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    margin-bottom: 0.5rem;
+}
+
+.drawer-eyebrow {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 0.3rem;
+}
+
+.drawer-title {
+    font-size: 1.4rem;
+    color: var(--color-surface);
+}
+
+.drawer-nav {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.drawer-tab {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.78);
+    border-left: 3px solid transparent;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.drawer-tab:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--color-surface);
+}
+
+.drawer-tab--active {
+    background: rgba(255, 255, 255, 0.1);
+    border-left-color: var(--color-brass);
+    color: var(--color-surface);
+    font-weight: 600;
+}
+
+.drawer-footer {
+    padding: 1rem 1.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.drawer-footer-text {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+    .catalog-drawer {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        padding: 0.8rem 1rem;
+    }
+
+    .drawer-header,
+    .drawer-footer {
+        display: none;
+    }
+
+    .drawer-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .drawer-tab {
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        padding: 0.5rem 0.8rem;
+    }
+
+    .drawer-tab--active {
+        border-bottom-color: var(--color-brass);
+    }
+}
