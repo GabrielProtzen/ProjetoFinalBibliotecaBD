@@ -173,3 +173,25 @@ Content-Type: application/json
   "livro_id": "6a370708ec387ea976abc178",
   "forcarFalha": true
 }
+
+
+## Completando o backend: Reservas e Avaliações
+### Criar reserva
+POST http://localhost:3000/api/reservas
+Content-Type: application/json
+
+{
+  "usuario_id": "6a370708ec387ea976abc116",
+  "livro_id": "6a370708ec387ea976abc17b"
+}
+
+### Criar avaliacao
+POST http://localhost:3000/api/avaliacoes
+Content-Type: application/json
+
+{
+  "usuario_id": "6a370708ec387ea976abc116",
+  "livro_id": "6a370708ec387ea976abc17b",
+  "nota": 5,
+  "comentario": "Muito bom"
+}
