@@ -58,6 +58,11 @@ export const top10LivrosMaisEmprestados = () =>
     api.get('/agregacoes/top10-livros-mais-emprestados').then((res) => res.data);
 export const rankingAutoresMaisLidos = () =>
     api.get('/agregacoes/ranking-autores-mais-lidos').then((res) => res.data);
+export const cursosQueMaisUtilizam = () =>
+    api.get('/agregacoes/cursos-que-mais-utilizam').then((res) => res.data);
+
+// ---------- Dashboard ----------
+export const dashboardResumo = () => api.get('/dashboard/resumo').then((res) => res.data);
 
 // ---------- Lookups (Parte 6) ----------
 export const relatorioUsuario = (id) => api.get(`/lookups/relatorio-usuario/${id}`).then((res) => res.data);

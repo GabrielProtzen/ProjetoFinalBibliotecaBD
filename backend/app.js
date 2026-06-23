@@ -14,6 +14,7 @@ const searchRoutes = require('./routes/searchRoutes');
 const transacaoRoutes = require('./routes/transacaoRoutes');
 const reservaRoutes = require('./routes/reservaRoutes');
 const avaliacaoRoutes = require('./routes/avaliacaoRoutes');
+const dashboardRoutes = require('./routes/dashboardRoutes');
 
 const app = express();
 
@@ -36,6 +37,7 @@ app.use('/api/search', searchRoutes);
 app.use('/api/transacoes', transacaoRoutes);
 app.use('/api/reservas', reservaRoutes);
 app.use('/api/avaliacoes', avaliacaoRoutes);
+app.use('/api/dashboard', dashboardRoutes);
 
 const PORT = process.env.PORT || 3000;
 
