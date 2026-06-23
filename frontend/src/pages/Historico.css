@@ -1,0 +1,42 @@
+.historico-select {
+    max-width: 420px;
+}
+
+.historico-content {
+    margin-top: 1.8rem;
+}
+
+.ficha-pessoal {
+    margin-bottom: 2rem;
+}
+
+.ficha-pessoal-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.9rem 1.6rem;
+    margin-top: 0.7rem;
+    font-size: 0.85rem;
+}
+
+.ficha-pessoal-grid strong {
+    color: var(--color-muted);
+    font-weight: 600;
+}
+
+.avaliacoes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.avaliacao-comentario {
+    margin-top: 0.5rem;
+    font-size: 0.88rem;
+    color: var(--color-ink);
+    font-style: italic;
+}
+
+table.data-table {
+    margin-bottom: 0.5rem;
+}

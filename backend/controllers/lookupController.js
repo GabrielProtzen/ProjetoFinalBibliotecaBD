@@ -92,24 +92,86 @@ exports.relatorioUsuario = async (req, res) => {
             {
                 $lookup: {
                     from: 'emprestimos',
-                    localField: '_id',
-                    foreignField: 'usuario_id',
+                    let: { uid: '$_id' },
+                    pipeline: [
+                        { $match: { $expr: { $eq: ['$usuario_id', '$$uid'] } } },
+                        {
+                            $lookup: {
+                                from: 'livros',
+                                localField: 'livro_id',
+                                foreignField: '_id',
+                                as: 'livro'
+                            }
+                        },
+                        { $unwind: { path: '$livro', preserveNullAndEmptyArrays: true } },
+                        {
+                            $project: {
+                                dataEmprestimo: 1,
+                                dataPrevistaDevolucao: 1,
+                                dataDevolucao: 1,
+                                status: 1,
+                                'livro.titulo': 1,
+                                'livro.autor': 1
+                            }
+                        },
+                        { $sort: { dataEmprestimo: -1 } }
+                    ],
                     as: 'emprestimos'
                 }
             },
             {
                 $lookup: {
                     from: 'reservas',
-                    localField: '_id',
-                    foreignField: 'usuario_id',
+                    let: { uid: '$_id' },
+                    pipeline: [
+                        { $match: { $expr: { $eq: ['$usuario_id', '$$uid'] } } },
+                        {
+                            $lookup: {
+                                from: 'livros',
+                                localField: 'livro_id',
+                                foreignField: '_id',
+                                as: 'livro'
+                            }
+                        },
+                        { $unwind: { path: '$livro', preserveNullAndEmptyArrays: true } },
+                        {
+                            $project: {
+                                dataReserva: 1,
+                                status: 1,
+                                'livro.titulo': 1,
+                                'livro.autor': 1
+                            }
+                        },
+                        { $sort: { dataReserva: -1 } }
+                    ],
                     as: 'reservas'
                 }
             },
             {
                 $lookup: {
                     from: 'avaliacoes',
-                    localField: '_id',
-                    foreignField: 'usuario_id',
+                    let: { uid: '$_id' },
+                    pipeline: [
+                        { $match: { $expr: { $eq: ['$usuario_id', '$$uid'] } } },
+                        {
+                            $lookup: {
+                                from: 'livros',
+                                localField: 'livro_id',
+                                foreignField: '_id',
+                                as: 'livro'
+                            }
+                        },
+                        { $unwind: { path: '$livro', preserveNullAndEmptyArrays: true } },
+                        {
+                            $project: {
+                                nota: 1,
+                                comentario: 1,
+                                data: 1,
+                                'livro.titulo': 1
+                            }
+                        },
+                        { $sort: { data: -1 } }
+                    ],
                     as: 'avaliacoes'
                 }
             }

@@ -15,7 +15,7 @@ export const alterarCategoriaLivro = (id, categoria) =>
 export const removerLivro = (id) => api.delete(`/livros/${id}`).then((res) => res.data);
 
 // ---------- Usuarios ----------
-export const listarUsuarios = () => api.get('/usuarios').then((res) => res.data);
+export const listarUsuarios = (limite) => api.get('/usuarios', { params: { limite } }).then((res) => res.data);
 export const buscarUsuarioPorId = (id) => api.get(`/usuarios/${id}`).then((res) => res.data);
 export const bloquearUsuario = (id) => api.patch(`/usuarios/${id}/bloquear`).then((res) => res.data);
 export const reativarUsuario = (id) => api.patch(`/usuarios/${id}/reativar`).then((res) => res.data);

@@ -3,7 +3,8 @@ const registrarAuditoria = require('../utils/auditoria');
 
 exports.listarUsuarios = async (req, res) => {
     try {
-        const usuarios = await Usuario.find().limit(50);
+        const limite = parseInt(req.query.limite) || 50;
+        const usuarios = await Usuario.find().sort({ nome: 1 }).limit(limite);
         res.json(usuarios);
     } catch (err) {
         res.status(500).json({ erro: err.message });

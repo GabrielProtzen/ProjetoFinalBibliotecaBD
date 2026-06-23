@@ -224,6 +224,11 @@ button {
     font-family: var(--font-mono);
 }
 
+.section-title {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
 /* ---------- Formularios ---------- */
 
 .field-group {
